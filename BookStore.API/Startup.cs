@@ -1,4 +1,5 @@
 using BookStore.API.Data;
+using BookStore.API.Mappings;
 using BookStore.API.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -44,6 +45,8 @@ namespace BookStore.API
                         .AllowAnyMethod()
                         .AllowAnyHeader());
             });
+
+            services.AddAutoMapper(typeof(Maps));
 
             services.AddSwaggerGen(c =>
             {
