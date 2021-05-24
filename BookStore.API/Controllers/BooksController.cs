@@ -178,7 +178,7 @@ namespace BookStore.API.Controllers
         }
 
         /// <summary>
-        /// Update an Book
+        /// Delete an Book
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
