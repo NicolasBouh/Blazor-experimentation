@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BookStore.API.Services
+namespace BookStore.API.Contracts
 {
     public interface ILoggerService
     {
@@ -11,7 +11,7 @@ namespace BookStore.API.Services
 
         void LogInfo(string message);
 
-        void LogWarning(string message);
+        void LogWarn(string message);
 
         void LogError(string message);
 

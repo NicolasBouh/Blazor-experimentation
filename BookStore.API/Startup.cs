@@ -1,3 +1,4 @@
+using BookStore.API.Contracts;
 using BookStore.API.Data;
 using BookStore.API.Mappings;
 using BookStore.API.Services;
@@ -63,6 +64,7 @@ namespace BookStore.API
             });
 
             services.AddSingleton<ILoggerService, LoggerService>();
+            services.AddScoped<IAuthorRepository, AuthorRepository>();
 
             services.AddControllers();
         }

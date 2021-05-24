@@ -1,4 +1,5 @@
-﻿using NLog;
+﻿using BookStore.API.Contracts;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace BookStore.API.Services
             logger.Info(message);
         }
 
-        public void LogWarning(string message)
+        public void LogWarn(string message)
         {
             logger.Warn(message);
         }
