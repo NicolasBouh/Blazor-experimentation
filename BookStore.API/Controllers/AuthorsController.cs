@@ -49,7 +49,7 @@ namespace BookStore.API.Controllers
             }
             catch (Exception ex)
             {
-                return InternalError($"${ex.Message} - {ex.InnerException}");
+                return InternalError($"{ex.Message} - {ex.InnerException}");
             }
         }
 
@@ -58,7 +58,7 @@ namespace BookStore.API.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns>An Author's record</returns>
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -66,7 +66,7 @@ namespace BookStore.API.Controllers
         {
             try
             {
-                _logger.LogInfo($"Attempted get all Author with id : {id}");
+                _logger.LogInfo($"Attempted get Author with id : {id}");
                 var author = await _authorRepository.FindById(id);
                 if (author == null)
                 {
@@ -79,7 +79,7 @@ namespace BookStore.API.Controllers
             }
             catch (Exception ex)
             {
-                return InternalError($"${ex.Message} - {ex.InnerException}");
+                return InternalError($"{ex.Message} - {ex.InnerException}");
             }
         }
 
@@ -118,7 +118,7 @@ namespace BookStore.API.Controllers
             }
             catch (Exception ex)
             {
-                return InternalError($"${ex.Message} - {ex.InnerException}");
+                return InternalError($"{ex.Message} - {ex.InnerException}");
             }
         }
 
@@ -128,7 +128,7 @@ namespace BookStore.API.Controllers
         /// <param name="id"></param>
         /// <param name="authorDTO"></param>
         /// <returns></returns>
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -165,7 +165,7 @@ namespace BookStore.API.Controllers
             }
             catch (Exception ex)
             {
-                return InternalError($"${ex.Message} - {ex.InnerException}");
+                return InternalError($"{ex.Message} - {ex.InnerException}");
             }
         }
 
@@ -174,7 +174,7 @@ namespace BookStore.API.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -205,7 +205,7 @@ namespace BookStore.API.Controllers
             }
             catch (Exception ex)
             {
-                return InternalError($"${ex.Message} - {ex.InnerException}");
+                return InternalError($"{ex.Message} - {ex.InnerException}");
             }
         }
 
