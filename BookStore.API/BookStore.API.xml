@@ -39,7 +39,7 @@
         </member>
         <member name="M:BookStore.API.Controllers.AuthorsController.DeleteAuthor(System.Int32)">
             <summary>
-            Update an Author
+            Delete an Author
             </summary>
             <param name="id"></param>
             <returns></returns>
@@ -80,7 +80,7 @@
         </member>
         <member name="M:BookStore.API.Controllers.BooksController.DeleteBook(System.Int32)">
             <summary>
-            Update an Book
+            Delete an Book
             </summary>
             <param name="id"></param>
             <returns></returns>
@@ -94,6 +94,13 @@
             <summary>
             Home Message
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BookStore.API.Controllers.UsersController.Login(BookStore.API.DTOs.UserDTO)">
+            <summary>
+            User Login Endpoint
+            </summary>
+            <param name="userDTO"></param>
             <returns></returns>
         </member>
     </members>

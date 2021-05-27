@@ -2,6 +2,7 @@
 using BookStore.API.Contracts;
 using BookStore.API.Data;
 using BookStore.API.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -16,6 +17,7 @@ namespace BookStore.API.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     [ProducesResponseType(StatusCodes.Status200OK)]
     public class AuthorsController : ControllerBase
     {
@@ -35,6 +37,7 @@ namespace BookStore.API.Controllers
         /// </summary>
         /// <returns>An Author's list records</returns>
         [HttpGet]
+        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetAuthors()
@@ -59,6 +62,7 @@ namespace BookStore.API.Controllers
         /// <param name="id"></param>
         /// <returns>An Author's record</returns>
         [HttpGet("{id:int}")]
+        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -89,6 +93,7 @@ namespace BookStore.API.Controllers
         /// <param name="authorDTO"></param>
         /// <returns>An Author's created record</returns>
         [HttpPost]
+        [Authorize(Roles="Administrator")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -129,6 +134,7 @@ namespace BookStore.API.Controllers
         /// <param name="authorDTO"></param>
         /// <returns></returns>
         [HttpPut("{id:int}")]
+        [Authorize(Roles = "Administrator, Customer")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -175,6 +181,7 @@ namespace BookStore.API.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete("{id:int}")]
+        [Authorize(Roles = "Customer")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
